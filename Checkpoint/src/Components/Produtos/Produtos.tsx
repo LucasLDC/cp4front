@@ -1,12 +1,12 @@
 interface products{
-    nome : string;
-    preco: string;
-    img: string;
-    descricao : string;
+    nome ? : string;
+    preco ? : string;
+    img ? : string;
+    descricao ? : string;
 }
 
 
-const Produtos = ( props : products) => {
+const Produtos = ( props : products ) => {
     return(
 
         <>
