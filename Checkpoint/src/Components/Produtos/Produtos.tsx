@@ -9,7 +9,7 @@ interface products{
 
 
 const Produtos = ( props : products) => {
-    const [count, setCount] = useState();
+    const [contar, setCount] = useState(0);
     return(
 
         <>
@@ -18,8 +18,8 @@ const Produtos = ( props : products) => {
                 <img src={props.img} />
                 <p>{props.preco} {props.descricao}</p>
                 <p></p>
-                <button onClick={() => setCount((count) => count + 1)}>
-                count is {count}
+                <button onClick={() => setCount((contar) => contar + 1)}>
+                count is {contar}
                 </button>
             </div>
         </>
