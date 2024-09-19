@@ -6,7 +6,8 @@ const Header = () => {
     return (
         <>
             <FundoHeader>
-                <h1>meu cabecario</h1>
+                <h1>Meu Cabeçalho</h1>
+                
                 {UrlNome.pathname !== "/Produtos" && (
                     <MenuLink to="/Produtos">Produtos</MenuLink>
                 )}
