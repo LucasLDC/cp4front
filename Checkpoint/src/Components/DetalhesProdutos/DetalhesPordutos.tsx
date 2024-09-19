@@ -1,3 +1,5 @@
+import Produtos from "../Produtos/Produtos";
+
 const DetalhesProdutos = () => {
 
     return (
