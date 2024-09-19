@@ -1,9 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { MenuLink } from "../../StyledComponents/Home";
 import { FundoHeader } from "../../StyledComponents/Header";
- 
 const Header = () => {
-    const UrlNome = useLocation();// coleto minha url
+    const UrlNome = useLocation();
     return (
         <>
             <FundoHeader>
@@ -16,10 +15,6 @@ const Header = () => {
                 )}
             </FundoHeader>
         </>
- 
- 
     )
 }
- 
 export default Header;
- 
