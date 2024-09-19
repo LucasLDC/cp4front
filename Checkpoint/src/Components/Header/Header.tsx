@@ -7,7 +7,7 @@ const Header = () => {
         <>
             <FundoHeader>
                 <h1>Meu Cabeçalho</h1>
-                
+                <img src="/img/Banner.jpg"/>
                 {UrlNome.pathname !== "/Produtos" && (
                     <MenuLink to="/Produtos">Produtos</MenuLink>
                 )}
