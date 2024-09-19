@@ -5,7 +5,9 @@ const DetalhesProdutos = () => {
     return (
         <>
             <h2>detalhes produtos</h2>
+            <Produtos nome="Real Madrid" preco="R$5 MILHÕES" img="\img\realmadrid.png" descricao="MAIOR TIME DO MUNDO"/>
             <Produtos nome="BATATA" preco="R$2,00" img="\img\BATATA.jpg" descricao="batata de qualidade"/>
+
             <Produtos nome="LEITE INTEGRAL" preco="R$ 5,00" img="\img\LEITE.jpg" descricao="Leite Integral"/>
         </>
     )
