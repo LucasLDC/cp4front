@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface products{
     nome : string;
     preco: string;
@@ -7,6 +9,7 @@ interface products{
 
 
 const Produtos = ( props : products) => {
+    const [count, setCount] = useState();
     return(
 
         <>
@@ -15,6 +18,9 @@ const Produtos = ( props : products) => {
                 <img src={props.img} />
                 <p>{props.preco} {props.descricao}</p>
                 <p></p>
+                <button onClick={() => setCount((count) => count + 1)}>
+                count is {count}
+                </button>
             </div>
         </>
     )
