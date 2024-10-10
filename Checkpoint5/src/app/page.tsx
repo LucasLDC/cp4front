@@ -1,7 +1,11 @@
-'use client'
+import './reset.css';
 
-export default function Home() {
-  <>
-    <h1>TESTE</h1>
-  </>
+const Home = () => {
+  return (
+    <>
+      <h1>TESTE</h1>
+    </>
+  );
 }
+
+export default Home;
