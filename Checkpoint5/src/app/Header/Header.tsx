@@ -1,0 +1,26 @@
+import styles from './Header.module.css';
+import Link from 'next/link';
+
+const Header = () => {
+    return (
+        <main className = {styles.main} >
+
+            <header className={styles.header}>
+
+                <h1 id="PetShop">
+                    PetsShop
+                </h1>
+                <nav>
+                    <ul className={styles.navUl}>
+                        <li className={styles.navLi}><Link className={styles.navLink} href="/">Home</Link></li>
+                        <li className={styles.navLi}><Link className={styles.navLink} href="/Login">Login</Link></li>
+                    </ul>
+                </nav>
+
+            </header>
+            
+        </main>
+    );
+};
+
+export default Header;

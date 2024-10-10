@@ -1,0 +1,58 @@
+.main .header {
+    margin: 0;
+    font-family: Arial, Helvetica, Roboto;
+    padding: 0;
+}
+
+.header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-top: 10px;
+}
+
+.header nav ul li {
+    margin: 0 15px;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.header .black {
+    color: black;
+}
+
+.header .blue {
+    color: dodgerblue;
+}
+
+    .header {
+        width: 100%;
+        height: fit-content;
+        background-color: #D9D9D9;
+        text-align: center;
+        font-size: 20px;
+        padding: 10px 0;
+        position: relative;
+    }
+
+
+    #PetShop {
+        padding: 16px;
+        margin-top: 60px;
+        font-size: 70px;
+    }
