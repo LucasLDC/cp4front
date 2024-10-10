@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
+import './reset.css';
 
 export const metadata: Metadata = {
   title: "Checkpoint-5 PetShop",

@@ -1,5 +1,4 @@
-import PageCadastro from './PaginaCadastro/page';
-import './reset.css';
+import PageCadastro from './Cadastro/page';
 const Home = () => {
   return (
     <>
