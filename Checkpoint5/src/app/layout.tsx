@@ -14,7 +14,11 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body>
+<<<<<<< HEAD
+        
+=======
         <Header/>
+>>>>>>> f39c977592db969a2327a4e96e62bec922b29fd7
         {children}
         <Footer/>
       </body>
