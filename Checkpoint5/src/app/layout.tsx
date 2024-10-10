@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Checkpoint-5 PetShop",
@@ -13,9 +14,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body>
-        <Header></Header>
-      
+        <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

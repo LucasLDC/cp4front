@@ -3,11 +3,9 @@ import Link from 'next/link';
 
 const Header = () => {
     return (
-        <main className = {styles.main} >
-
+        <main className={styles.main}>
             <header className={styles.header}>
-
-                <h1 id="PetShop">
+                <h1 className={styles.PetShop}>
                     PetsShop
                 </h1>
                 <nav>
@@ -16,9 +14,7 @@ const Header = () => {
                         <li className={styles.navLi}><Link className={styles.navLink} href="/Login">Login</Link></li>
                     </ul>
                 </nav>
-
             </header>
-            
         </main>
     );
 };
