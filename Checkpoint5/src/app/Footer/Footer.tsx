@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <>
             <footer className={styles.footer}>
-                    <p className={styles.p}>Giovanna Revito Roz - RM558981 |
+                <p className={styles.p}>Giovanna Revito Roz - RM558981 |
                 Giulia Corrêa Camillo - RM554473 |
                 João Gabriel Boaventura Marques e Silva - RM554874|
                 KAIAN GUSTAVO DE OLIVEIRA NASCIMENTO - RM558986 |
