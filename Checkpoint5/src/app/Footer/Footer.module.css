@@ -12,7 +12,7 @@
 .p{
     font-size: 15px;
         font-style: italic;
-        background: linear-gradient(90deg, black, orange);
+        background: linear-gradient(90deg, black, #3b82f6);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;

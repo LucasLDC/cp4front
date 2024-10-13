@@ -1,4 +1,5 @@
-import styles from './Error404.module.css';
+'use client'
+import styles from './Error404/Error404.module.css';
 
 export default function NotFound() {
     return (

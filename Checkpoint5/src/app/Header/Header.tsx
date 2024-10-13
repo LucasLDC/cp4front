@@ -5,9 +5,7 @@ const Header = () => {
     return (
         <main className={styles.main}>
             <header className={styles.header}>
-                <h1 className={styles.PetShop}>
-                    PetsShop
-                </h1>
+                <h1 className={styles.PetShop}>Petsu Shop</h1>
                 <nav>
                     <ul className={styles.navUl}>
                         <li className={styles.navLi}><Link className={styles.navLink} href="/">Home</Link></li>
