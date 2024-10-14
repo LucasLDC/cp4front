@@ -1,0 +1,16 @@
+[
+  {
+    "nome": "kaian",
+    "email": "kaian@gamil.com",
+    "senha": "123",
+    "nomePet": "abu",
+    "especiePet": "Cachorro"
+  },
+  {
+    "nome": "ABU",
+    "email": "ABU@GMAIL.COM",
+    "senha": "123",
+    "nomePet": "ABU",
+    "especiePet": "Cachorro"
+  }
+]
