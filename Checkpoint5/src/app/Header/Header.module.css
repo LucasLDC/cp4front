@@ -39,7 +39,7 @@
 
 .navLink.active {
     color: white; 
-    background-color: #3b82f6; 
+    background-color: #9FBC7B; 
     border-radius: 30px; 
     padding: 10px 20px;
     transition: all 0.3s ease-in-out;
@@ -47,11 +47,11 @@
 }
 
 .navLink:hover {
-    color: #3b82f6; 
+    color: #9FBC7B; 
 }
 
 .PetShop {
-    background: linear-gradient(90deg, black, #3b82f6);
+    background: linear-gradient(90deg, black, #b3ec6d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -64,7 +64,7 @@
 .PetShop {
     font-family: 'Pacifico', cursive; 
     font-size: 48px;
-    background: linear-gradient(90deg, black, #3b82f6);
+    background: linear-gradient(90deg, black, #b3ec6d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

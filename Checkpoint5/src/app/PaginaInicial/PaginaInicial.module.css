@@ -36,21 +36,21 @@
 
 .button {
     padding: 0.75rem 1.5rem; 
-    background-color: #3b82f6;
+    background-color: #9FBC7B;
     border-radius: 22px;
-    color: #ffffff;
+    color: #000000;
     border: none; 
     transition: background-color 0.3s ease, transform 0.2s ease; 
     cursor: pointer; 
 }
 
 .button:hover {
-    background-color: #2563eb; 
+    background-color: #9FBC7B; 
     transform: scale(1.05); 
 }
 
 .button:focus {
-    outline: 2px solid #3b82f6; 
+    outline: 2px solid #9FBC7B; 
     outline-offset: 2px;
 }
 

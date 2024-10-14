@@ -1,5 +1,5 @@
 .fieldset {
-    border: 3px solid #51b4ff;
+    border: 3px solid #9FBC7B;
     border-radius: 8px;
     padding: 50px;
     margin: 30px 0;
@@ -35,7 +35,7 @@
 .section input[type="text"]:focus,
 .section input[type="email"]:focus,
 .section input[type="password"]:focus {
-    border-color: #3b82f6;
+    border-color: #9FBC7B;
     outline: none;
 }
 
@@ -46,7 +46,7 @@
 
 .button {
     padding: 12px 24px;
-    background-color: #3b82f6;
+    background-color: #9FBC7B;
     color: white;
     border: none;
     border-radius: 5px;
@@ -55,7 +55,7 @@
 }
 
 .button:hover {
-    background: #0077B6;
+    background: #9FBC7B;
 }
 
 .createAccount {
