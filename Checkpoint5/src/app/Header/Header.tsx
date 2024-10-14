@@ -11,7 +11,6 @@ const Header = () => {
                         <li className={styles.navLi}><Link className={styles.navLink} href="/">Home</Link></li>
                         <li className={styles.navLi}><Link className={styles.navLink} href="/Adicione_Servico">Adicione Serviço</Link></li>
                         <li className={styles.navLi}><Link className={styles.navLink} href="/Login">Login</Link></li>
-                        <li className={styles.navLi}><Link className={styles.navLink} href="/Adicione_Servicos">adicione</Link></li>
                     </ul>
                 </nav>
             </header>

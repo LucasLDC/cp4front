@@ -95,7 +95,7 @@ const Login = () => {
                     {error && <p style={{ color: 'red' }}>{error}</p>} {/* Mensagem de erro */}
 
                     <Link href="/Cadastro">
-                        <h1 className={styles.createAccount}>Criar um cadastro</h1>
+                        <h1 className={styles.createAccount}>Cadastre-se</h1>
                     </Link>
                     <button type="submit" className={styles.button}>Entrar</button>
                 </fieldset>

@@ -23,7 +23,10 @@
 .titulo-texto {
     font-size: 2rem; 
     margin: 0 0 1rem; 
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600; 
 }
+
 
 .imagemDog {
     height: auto; 
