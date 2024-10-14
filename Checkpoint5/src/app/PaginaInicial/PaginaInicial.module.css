@@ -1,33 +1,70 @@
 .container {
     width: 100%;
     max-width: 3200px;
+    padding: 1rem; 
+    box-sizing: border-box; 
 }
 
 .imgANDtext {
     display: flex;
     align-items: center;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 2rem; 
 }
 
 .titulo {
-    font-size: 20px;
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    justify-content: center; 
+    text-align: center; 
+}
+
+.titulo-texto {
+    font-size: 2rem; 
+    margin: 0 0 1rem; 
 }
 
 .imagemDog {
-    height: 800px;
-    width: 100%;
+    height: auto; 
+    max-width: 50%; 
+    border-radius: 1rem; 
 }
 
 .button {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem; 
     background-color: #3b82f6;
-    color: rgb(0, 0, 0);
-    border-radius: 0.25rem;
-    transition: background-color 0.3s ease;
+    border-radius: 22px;
+    color: #ffffff;
+    border: none; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+    cursor: pointer; 
+}
+
+.button:hover {
+    background-color: #2563eb; 
+    transform: scale(1.05); 
+}
+
+.button:focus {
+    outline: 2px solid #3b82f6; 
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .titulo {
+        margin-left: 0; 
+    }
+
+    .titulo-texto {
+        font-size: 1.5rem; 
+    }
+
+    .imagemDog {
+        max-width: 80%; 
+    }
+
+    .button {
+        padding: 0.5rem 1rem; 
+    }
 }
