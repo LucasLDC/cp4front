@@ -1,0 +1,50 @@
+.main {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: fit-content;
+    background-color: #D9D9D9;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px 0;
+    position: relative;
+}
+
+.header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navUl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-top: 10px;
+}
+
+.navLi {
+    margin: 0 15px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+}
+
+.PetShop {
+    background: linear-gradient(90deg, black, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}

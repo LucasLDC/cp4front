@@ -10,16 +10,19 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "axios": "^1.7.7",
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18",
     "react-router-dom": "^6.26.2",
+    "styled-components": "^6.1.13",
     "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "babel-plugin-styled-components": "^2.1.4",
     "typescript": "^5"
   }
 }
