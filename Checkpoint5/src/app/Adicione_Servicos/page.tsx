@@ -41,6 +41,7 @@ const AdicionarServico: React.FC = () => {
     };
 
     return (
+<>
         <div className={styles.container}>
             <div className={styles.formContainer}>
                 <h1 className={styles.title}>Adicionar Serviço</h1>
@@ -81,6 +82,7 @@ const AdicionarServico: React.FC = () => {
                 )}
             </div>
         </div>
+</>
     );
 };
 
