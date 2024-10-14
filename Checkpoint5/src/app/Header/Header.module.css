@@ -51,7 +51,7 @@
 }
 
 .PetShop {
-    background: linear-gradient(90deg, black, #b3ec6d);
+    background: linear-gradient(90deg, black, #bfff70);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -64,7 +64,7 @@
 .PetShop {
     font-family: 'Pacifico', cursive; 
     font-size: 48px;
-    background: linear-gradient(90deg, black, #b3ec6d);
+    background: linear-gradient(90deg, black, #bfff70);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
