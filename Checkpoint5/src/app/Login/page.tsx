@@ -2,34 +2,41 @@
 import { useState } from 'react';
 import styles from './Login.module.css';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation'; 
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [error, setError] = useState("");
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [error, setError] = useState('');
+    const [MostrarSenha, setMostrarSenha] = useState(false); 
+    const router = useRouter();
 
-    const handleLogin = () => {
-        // Obtendo dados do Web Storage
-        const storedData = JSON.parse(localStorage.getItem("cadastroData"));
-
-        // Verificando se as informações do usuário estão corretas
-        if (storedData) {
-            if (storedData.email === email && storedData.senha === senha) {
-                // Login bem-sucedido
-                // Você pode redirecionar para outra página aqui, por exemplo:
-                window.location.href = "/Consultas_Veterinarias";
-            } else {
-                // Se o email ou a senha estiverem incorretos
-                setError("Email ou senha incorretos.");
-            }
-        } else {
-            setError("Nenhum usuário encontrado.");
-        }
+    const mudarVisibilidadeSenha = () => {
+        setMostrarSenha(!MostrarSenha);
     };
+
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault(); 
+
+        const user = localStorage.getItem('user');
+        if (user) {
+            const analiseUser = JSON.parse(user);
+
+            if (analiseUser.email === email && analiseUser.password === senha) {
+                router.push('/Dashboard');
+                localStorage.setItem('isLoggedIn', 'true');
+            } else {
+                setError('Email ou senha incorretos');
+            }
+            
+        } else {
+            setError('Usuário não encontrado. Faça o cadastro primeiro.'); 
+        }
+    }
 
     return (
         <section className={styles.section}>
-            <form id={styles.LOGIN} onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
+            <form id={styles.LOGIN} onSubmit={handleLogin}> 
                 <fieldset className={styles.fieldset}>
                     <legend>Login</legend>
                     
@@ -40,22 +47,34 @@ const Login = () => {
                             placeholder="Digite o Email" 
                             value={email} 
                             onChange={(e) => setEmail(e.target.value)} 
-                        />
+                        required/>
                     </label>
                     <br />
 
-                    <label htmlFor="txtSenha">
-                        <h4>SENHA:</h4>
-                        <input 
-                            type='password' 
-                            placeholder="Digite a Senha" 
-                            value={senha} 
-                            onChange={(e) => setSenha(e.target.value)} 
-                        />
-                    </label>
+                    <div>
+                        <h4 className={styles.texto}>Senha:</h4>
+                        <div className={styles.passwordContainer}>
+                            <input 
+                                className={styles.input} 
+                                type={MostrarSenha ? 'text' : 'password'} 
+                                placeholder='Digite sua senha' 
+                                value={senha} 
+                                onChange={(e) => setSenha(e.target.value)} 
+                                required
+                            />
+                            <button 
+                                type="button" 
+                                onClick={mudarVisibilidadeSenha} 
+                                className={styles.toggleButton}
+                            >
+                                {MostrarSenha ? '👁️' : '🙈'}
+                            </button>
+                        </div>
+                    </div>
+
                     <br />
 
-                    {error && <p style={{ color: 'red' }}>{error}</p>} {/* Mensagem de erro */}
+                    {error && <p style={{ color: 'red' }}>{error}</p>} 
 
                     <Link href="/Cadastro">
                         <h1 className={styles.createAccount}>Cadastre-se</h1>

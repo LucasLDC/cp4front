@@ -1,11 +1,75 @@
+.container {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .fieldset {
     border: 3px solid #999;
     border-radius: 8px;
-    padding: 50px;
-    /* margin: 30px 0; */
+    padding: 15px;
     background-color: #fefefe;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
+    margin: 150px 0px 0px 0px;
+}
+
+.legend {
+    font-size: 2rem;
+    font-weight: bold;
     text-align: center;
+}
+
+.button {
+    margin: 10px 0px;
+    padding: 12px 24px;
+    background-color: #9FBC7B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    cursor: pointer;
+}
+
+.input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    background-color: #F0F0F0;
+    font-size: 20px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.texto {
+    font-size: large;
+}
+
+.passwordContainer {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.passwordContainer .input {
+    padding-right: 40px;
+}
+
+.toggleButton {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.toggleButton:focus {
+    outline: none;
 }

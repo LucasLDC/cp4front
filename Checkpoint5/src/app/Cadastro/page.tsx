@@ -1,110 +1,85 @@
-"use client";
-import React, { useState } from "react";
-import CadastroContainer from "../css_Styled_Components/CadastroCss";
-import styles from "./Cadastro.module.css";
-import { useRouter } from "next/navigation"; // Correto no App Router
+'use client';  
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import styles from './Cadastro.module.css';
 
-const PageCadastro = () => {
-  const rota = useRouter();
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [nomePet, setNomePet] = useState("");
-  const [especiePet, setEspeciePet] = useState("");
-  const [error, setError] = useState("");
+const Register = () => {
+  const [name, setName] = useState('');  
+  const [email, setEmail] = useState('');  
+  const [password, setPassword] = useState('');  
+  const [nomePet, setNomePet] = useState('');  
+  const [especiePet, setEspeciePet] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleCadastro = async (e) => {
-    e.preventDefault(); // Previne o comportamento padrão do formulário
+  const router = useRouter();  
 
-    // Validação dos campos
-    if (!nome || !email || !senha || !nomePet || !especiePet) {
-      setError("Todos os campos são obrigatórios.");
-      return;
-    }
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
-    // Validação do formato do email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setError("Por favor, insira um email válido.");
-      return;
-    }
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault(); 
 
-    // Dados do cadastro
-    const cadastroData = {
-      nome,
-      email,
-      senha,
+    const user = { 
+      name,
+      email, 
+      password,
       nomePet,
       especiePet,
     };
+    
+    localStorage.setItem('user', JSON.stringify(user));
 
-    try {
-      // Envio para API que salva num arquivo JSON
-      const response = await fetch("/api/cadastro", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(cadastroData),
-      });
-
-      if (response.ok) {
-        // Armazena no web storage
-        localStorage.setItem("cadastroData", JSON.stringify(cadastroData)); // Armazena todos os dados
-        localStorage.setItem("email", email); // Armazena apenas o email
-        localStorage.setItem("senha", senha); // Armazena apenas a senha
-        sessionStorage.setItem("logado", "true");
-        rota.push("/Login"); // Redireciona para a página de login
-      } else {
-        setError("Erro ao realizar o cadastro.");
-      }
-    } catch (error) {
-      console.error("Erro ao enviar dados:", error);
-      setError("Erro ao realizar o cadastro.");
-    }
+    router.push('/Login');  
   };
 
   return (
-    <CadastroContainer>
+    <div className={styles.container}>  
       <fieldset className={styles.fieldset}>
-        <legend><h1>Cadastre-se</h1></legend>
+        <legend className={styles.legend}>Informações de Cadastro</legend>
+        <form onSubmit={handleRegister}>
 
-        <label htmlFor="nome">Nome
-          <br />
-          <input type="text" id="nome" value={nome} onChange={(e) => setNome(e.target.value)} />
-        </label>
-        <br />
+          <div>
+            <label className={styles.texto}>Nome:</label>
+            <input className={styles.input} type="text" placeholder='Digite seu Nome' value={name} onChange={(e) => setName(e.target.value)} required />
+          </div>
 
-        <label htmlFor="email">Email
-          <br />
-          <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <br />
+          <div>
+            <label className={styles.texto}>Email:</label>
+            <input className={styles.input} type="email" placeholder='Digite seu email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
+          </div>
+          
+          <div>
+            <label className={styles.texto}>Senha:</label>
+            <div className={styles.passwordContainer}>
+              <input className={styles.input} type={showPassword ? 'text' : 'password'} placeholder='Digite sua senha' value={password} onChange={(e) => setPassword(e.target.value)} required/>
+              <button type="button" onClick={togglePasswordVisibility} className={styles.toggleButton}>
+                {showPassword ? '👁️' : '🙈'}
+              </button>
+            </div>
+          </div>
 
-        <label htmlFor="senha">Senha
-          <br />
-          <input type="password" id="senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
-        </label>
-        <br />
+          <div>
+            <label className={styles.texto}>Nome do Pet:</label>
+            <input  className={styles.input} type="text" placeholder='Digite o nome do seu PET' value={nomePet} onChange={(e) => setNomePet(e.target.value)} required/>
+          </div>
 
-        <label htmlFor="nomePet">Nome do pet
-          <br />
-          <input type="text" id="nomePet" value={nomePet} onChange={(e) => setNomePet(e.target.value)} />
-        </label>
-        <br />
-
-        <label htmlFor="especiePet">Espécie do seu pet
-          <br />
-          <input type="radio" name="especiePet" value="Cachorro" onChange={(e) => setEspeciePet(e.target.value)} /> Cachorro
-          <input type="radio" name="especiePet" value="Gato" onChange={(e) => setEspeciePet(e.target.value)} /> Gato
-        </label>
-        <br />
-
-        <button type="submit" onClick={handleCadastro}>Enviar</button>
+          <div>
+            <label>Espécie do Pet:</label>
+            <div>
+              <input type="radio" id="dog" name="petSpecies" value="Cachorro" onChange={(e) => setEspeciePet(e.target.value)} required/>
+              <label htmlFor="dog">Cachorro</label>
+            </div>
+            <div>
+              <input type="radio" id="cat" name="petSpecies" value="Gato" onChange={(e) => setEspeciePet(e.target.value)} required/>
+              <label htmlFor="cat">Gato</label>
+            </div>
+          </div>
+          <button className={styles.button} type="submit">Cadastrar</button>
+        </form>
       </fieldset>
-      {error && <p>{error}</p>}
-    </CadastroContainer>
+    </div>
   );
 };
 
-export default PageCadastro;
+export default Register;
