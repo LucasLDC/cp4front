@@ -11,7 +11,7 @@ h1 {
     font-size: 2rem;
 }
 
-.button {
+button {
     padding: 12px 24px;
     background-color: #9FBC7B; 
     color: white;
@@ -21,8 +21,8 @@ h1 {
     cursor: pointer;
 }
 
-.button:hover {
-    background-color: #2563eb; 
+button:hover {
+    background-color: #9FBC7B; 
     transform: scale(1.05);
 }
 
@@ -41,3 +41,5 @@ h1 {
     border-color: #9FBC7B; 
     outline: none;
 }
+
+

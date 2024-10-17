@@ -1,3 +1,4 @@
+'use client'
 import data from './servicos.json'
 import { NextApiRequest, NextApiResponse } from 'next'
 

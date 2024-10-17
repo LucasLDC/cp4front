@@ -24,7 +24,6 @@ const Login = () => {
 
             if (analiseUser.email === email && analiseUser.password === senha) {
                 router.push('/Dashboard');
-                localStorage.setItem('isLoggedIn', 'true');
             } else {
                 setError('Email ou senha incorretos');
             }
