@@ -41,10 +41,10 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>Seja Bem Vindo {user.name}</h1>
+      <h1>Seja Bem Vindo(a) {user.name}</h1>
       <h1>O que você gostaria de fazer para a(o) {user.nomePet}?</h1>
       <fieldset>
-        <legend>Suas Informações</legend>
+        <legend> <h1>Suas Informações</h1></legend>
         {editing ? (
           <form onSubmit={handleSave}>
             <div>
@@ -111,9 +111,8 @@ const Dashboard = () => {
           </div>
         )}
       </fieldset>
-      <Link href='/Login'>
-        <button className='agenda'>Agendar Tratamento</button>
-          <img src='/img/cachorroTratamento.jpg'/>
+      <Link href='/Servicos'>
+        <img src='/img/cachorroTratamento.jpg'/>
       </Link>
     </div>
   );
