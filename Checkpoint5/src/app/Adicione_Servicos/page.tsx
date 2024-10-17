@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './AdicionarServico.module.css';
 
 interface Servico {
@@ -22,6 +23,9 @@ const AdicionarServicoPetshop: React.FC = () => {
 
     const [mensagem, setMensagem] = useState<string>('');
     const [erro, setErro] = useState<boolean>(false);
+    const [servicosSalvos, setServicosSalvos] = useState<Servico[]>([]);
+    
+    const router = useRouter();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -34,18 +38,34 @@ const AdicionarServicoPetshop: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (servico.nome && servico.descricao && servico.preco > 0 && servico.categoria && servico.duracao) {
-            console.log('Serviço adicionado:', servico);
+            const servicosArmazenados = JSON.parse(localStorage.getItem('servicos') || '[]');
+            servicosArmazenados.push(servico);
+            localStorage.setItem('servicos', JSON.stringify(servicosArmazenados));
             setMensagem('Serviço adicionado com sucesso!');
             setErro(false);
-            setServico({ nome: '', descricao: '', preco: 0, categoria: '', duracao: '' }); // Resetando o formulário
+            setServico({ nome: '', descricao: '', preco: 0, categoria: '', duracao: '' });
+            setServicosSalvos(servicosArmazenados);
         } else {
             setMensagem('Preencha todos os campos corretamente.');
             setErro(true);
         }
     };
 
+    useEffect(() => {
+        const servicosArmazenados = localStorage.getItem('servicos');
+        if (servicosArmazenados) {
+            setServicosSalvos(JSON.parse(servicosArmazenados));
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('usuario');
+        router.push('/Login'); 
+    };
+
     return (
         <div className={styles.container}>
+            <h1 className={styles.titulo}>Você entrou como ADMIN da PETSU SHOP</h1>
             <div className={styles.formContainer}>
                 <h1 className={styles.title}>Adicionar Serviço de Petshop</h1>
                 <form onSubmit={handleSubmit} className={styles.form}>
@@ -120,6 +140,22 @@ const AdicionarServicoPetshop: React.FC = () => {
                 {mensagem && (
                     <p className={erro ? styles.erro : styles.sucesso}>{mensagem}</p>
                 )}
+
+                {servicosSalvos.length > 0 && (
+                    <div className={styles.servicosSalvos}>
+                        <h2>Serviços Salvos</h2>
+                        <ul>
+                            {servicosSalvos.map((s, index) => (
+                                <li key={index}>
+                                    {s.nome} - {s.descricao} - R$ {s.preco} - {s.categoria} - {s.duracao}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                <button onClick={handleLogout} className={styles.logoutButton}>
+                    Logout
+                </button>
             </div>
         </div>
     );

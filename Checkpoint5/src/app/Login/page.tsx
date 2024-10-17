@@ -18,6 +18,13 @@ const Login = () => {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault(); 
 
+        // Verificar se o login é do admin
+        if (email === 'admin@email.com' && senha === 'admin123') {
+            router.push('/Adicione_Servicos');
+            return; // Parar a execução após redirecionar o admin
+        }
+
+        // Verificação de login para usuários comuns
         const user = localStorage.getItem('user');
         if (user) {
             const analiseUser = JSON.parse(user);
