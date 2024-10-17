@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link'; 
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -110,9 +111,10 @@ const Dashboard = () => {
           </div>
         )}
       </fieldset>
-
-      <button>Agendar Tratamento</button>
-
+      <Link href='/Login'>
+        <button className='agenda'>Agendar Tratamento</button>
+          <img src='/img/cachorroTratamento.jpg'/>
+      </Link>
     </div>
   );
 };
