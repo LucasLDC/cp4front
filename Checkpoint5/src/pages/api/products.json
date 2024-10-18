@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 1,
+        "nome" : "Ração GranPlus Choice Cães Adultos Frango E Carne - 10,1kg",
+        "preco" : 109.9
+    },
+    {
+        "id" : 2,
+        "nome" : "Ração Golden Gatos Adultos Special Frango E Carne 10,1kg",
+        "preco" : 149.99
+    },
+    {
+        "id" : 3,
+        "nome" : "Petz Varinha Para Gatos",
+        "preco" : 24.99
+    },
+    {
+        "id" : 4,
+        "nome" : "Brinquedo P/ Cachorro Hamburguer Fofo Pelúcia Pet C/ Apito",
+        "preco" : 44.90
+    }
+]
