@@ -1,7 +1,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    /* Empilha os itens em coluna, com o título em cima */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -23,7 +22,6 @@
     color: #333;
     font-size: 2rem;
     margin-bottom: 20px;
-    /* Ajuste para separação do formulário */
     font-weight: bold;
 }
 
