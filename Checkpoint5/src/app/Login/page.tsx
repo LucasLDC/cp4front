@@ -18,13 +18,11 @@ const Login = () => {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault(); 
 
-        // Verificar se o login é do admin
         if (email === 'admin@email.com' && senha === 'admin123') {
             router.push('/Adicione_Servicos');
-            return; // Parar a execução após redirecionar o admin
+            return;
         }
 
-        // Verificação de login para usuários comuns
         const user = localStorage.getItem('user');
         if (user) {
             const analiseUser = JSON.parse(user);
@@ -83,7 +81,7 @@ const Login = () => {
                     {error && <p style={{ color: 'red' }}>{error}</p>} 
 
                     <Link href="/Cadastro">
-                        <h1 className={styles.createAccount}>Cadastre-se</h1>
+                        <h1 className={styles.criarConta}>Cadastre-se</h1>
                     </Link>
                     <button type="submit" className={styles.button}>Entrar</button>
                 </fieldset>

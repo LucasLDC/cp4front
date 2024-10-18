@@ -10,42 +10,42 @@ interface Produto {
 }
 
 const Dashboard = () => {
-  const [user, setUser] = useState({
-    name: '',
+  const [usuario, setUsuario] = useState({
+    nome: '',
     email: '',
-    password: '',
+    senha: '',
     nomePet: '',
     especiePet: '',
     isLogged: true
   });
-  const [editing, setEditing] = useState(false);
+  const [editando, setEditando] = useState(false);
   const [servicos, setServicos] = useState([]);
   const [produtos, setProdutos] = useState<Produto[]>([]);
   const [carrinho, setCarrinho] = useState<Produto[]>([]);
   const router = useRouter();
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    const storedServicos = localStorage.getItem('servicos');
-    const storedCarrinho = sessionStorage.getItem('carrinho');
+    const usuarioArmazenado = localStorage.getItem('user');
+    const servicosArmazenados = localStorage.getItem('servicos');
+    const carrinhoArmazenado = sessionStorage.getItem('carrinho');
 
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    if (usuarioArmazenado) {
+      setUsuario(JSON.parse(usuarioArmazenado));
     } else {
       router.push('/Login');
     }
 
-    if (storedServicos) {
-      setServicos(JSON.parse(storedServicos));
+    if (servicosArmazenados) {
+      setServicos(JSON.parse(servicosArmazenados));
     }
 
-    if (storedCarrinho) {
-      setCarrinho(JSON.parse(storedCarrinho));
+    if (carrinhoArmazenado) {
+      setCarrinho(JSON.parse(carrinhoArmazenado));
     }
   }, [router]);
 
   useEffect(() => {
-    const fetchProdutos = async () => {
+    const buscarProdutos = async () => {
       try {
         const res = await fetch('/api/products.json');
         const data = await res.json();
@@ -54,25 +54,25 @@ const Dashboard = () => {
         console.error('Erro ao buscar os produtos:', error);
       }
     }
-    fetchProdutos();
+    buscarProdutos();
   }, []);
 
   useEffect(() => {
     sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
   }, [carrinho]);
 
-  const handleEdit = () => {
-    setEditing(true);
+  const manipularEdicao = () => {
+    setEditando(true);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+  const manipularMudanca = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsuario({ ...usuario, [e.target.name]: e.target.value });
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const manipularSalvar = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem('user', JSON.stringify(user));
-    setEditing(false);
+    localStorage.setItem('user', JSON.stringify(usuario));
+    setEditando(false);
   };
 
   const adicionarAoCarrinho = (produto: Produto) => {
@@ -92,29 +92,29 @@ const Dashboard = () => {
     setCarrinho([]);
   };
 
-  const handleLogout = () => {
+  const manipularLogout = () => {
     localStorage.removeItem('user');
     router.push('/Login');
   };
 
   return (
     <div className="dashboard-container">
-      <button className="logout-button" onClick={handleLogout}>
+      <button className="logout-button" onClick={manipularLogout}>
         Logout
       </button>
 
       <div className="info-container">
         <fieldset>
           <legend><h1>Suas Informações</h1></legend>
-          {editing ? (
-            <form onSubmit={handleSave}>
+          {editando ? (
+            <form onSubmit={manipularSalvar}>
               <div>
                 <label>Nome:</label>
                 <input
                   type="text"
-                  name="name"
-                  value={user.name}
-                  onChange={handleChange}
+                  name="nome"
+                  value={usuario.nome}
+                  onChange={manipularMudanca}
                   required
                 />
               </div>
@@ -123,8 +123,8 @@ const Dashboard = () => {
                 <input
                   type="email"
                   name="email"
-                  value={user.email}
-                  onChange={handleChange}
+                  value={usuario.email}
+                  onChange={manipularMudanca}
                   required
                 />
               </div>
@@ -132,9 +132,9 @@ const Dashboard = () => {
                 <label>Senha:</label>
                 <input
                   type="password"
-                  name="password"
-                  value={user.password}
-                  onChange={handleChange}
+                  name="senha"
+                  value={usuario.senha}
+                  onChange={manipularMudanca}
                   required
                 />
               </div>
@@ -143,8 +143,8 @@ const Dashboard = () => {
                 <input
                   type="text"
                   name="nomePet"
-                  value={user.nomePet}
-                  onChange={handleChange}
+                  value={usuario.nomePet}
+                  onChange={manipularMudanca}
                   required
                 />
               </div>
@@ -153,22 +153,22 @@ const Dashboard = () => {
                 <input
                   type="text"
                   name="especiePet"
-                  value={user.especiePet}
-                  onChange={handleChange}
+                  value={usuario.especiePet}
+                  onChange={manipularMudanca}
                   required
                 />
               </div>
               <button type="submit">Salvar</button>
-              <button type="button" onClick={() => setEditing(false)}>Cancelar</button>
+              <button type="button" onClick={() => setEditando(false)}>Cancelar</button>
             </form>
           ) : (
             <div>
-              <p><strong>Nome:</strong> {user.name}</p>
-              <p><strong>Email:</strong> {user.email}</p>
-              <p><strong>Senha:</strong> {user.password.replace(/./g, '*')}</p>
-              <p><strong>Nome do Pet:</strong> {user.nomePet}</p>
-              <p><strong>Espécie do Pet:</strong> {user.especiePet}</p>
-              <button onClick={handleEdit}>Editar</button>
+              <p><strong>Nome:</strong> {usuario.nome}</p>
+              <p><strong>Email:</strong> {usuario.email}</p>
+              <p><strong>Senha:</strong> {usuario.senha.replace(/./g, '*')}</p>
+              <p><strong>Nome do Pet:</strong> {usuario.nomePet}</p>
+              <p><strong>Espécie do Pet:</strong> {usuario.especiePet}</p>
+              <button onClick={manipularEdicao}>Editar</button>
             </div>
           )}
         </fieldset>

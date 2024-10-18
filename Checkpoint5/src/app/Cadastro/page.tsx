@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './Cadastro.module.css';
 
-const Register = () => {
+const Cadastro = () => {
   const [name, setName] = useState('');  
   const [email, setEmail] = useState('');  
   const [password, setPassword] = useState('');  
@@ -13,11 +13,11 @@ const Register = () => {
 
   const router = useRouter();  
 
-  const togglePasswordVisibility = () => {
+  const mudarVisibilidadeSenha = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleRegister = (e: React.FormEvent) => {
+  const lidarCadastro = (e: React.FormEvent) => {
     e.preventDefault(); 
 
     const user = { 
@@ -37,7 +37,7 @@ const Register = () => {
     <div className={styles.container}>  
       <fieldset className={styles.fieldset}>
         <legend className={styles.legend}>Informações de Cadastro</legend>
-        <form onSubmit={handleRegister}>
+        <form onSubmit={lidarCadastro}>
 
           <div>
             <label className={styles.texto}>Nome:</label>
@@ -53,7 +53,7 @@ const Register = () => {
             <label className={styles.texto}>Senha:</label>
             <div className={styles.passwordContainer}>
               <input className={styles.input} type={showPassword ? 'text' : 'password'} placeholder='Digite sua senha' value={password} onChange={(e) => setPassword(e.target.value)} required/>
-              <button type="button" onClick={togglePasswordVisibility} className={styles.toggleButton}>
+              <button type="button" onClick={mudarVisibilidadeSenha} className={styles.toggleButton}>
                 {showPassword ? '👁️' : '🙈'}
               </button>
             </div>
@@ -82,4 +82,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Cadastro;
